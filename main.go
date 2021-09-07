@@ -48,7 +48,7 @@ func main() {
 				}
 				//if you are in <a> tag so next tocken will be the text
 				nextTockenTypeforText := tokenizer.Next()
-				//for make sure that, it is text only i am using if condition
+				//for make sure that, it is text only i am ussing if condition
 				if nextTockenTypeforText == html.TextToken {
 					linkText := tokenizer.Token().Data
 					text = append(text, linkText)
