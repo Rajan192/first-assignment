@@ -5,7 +5,10 @@ import (
 	"io"
 	"log"
 	"net/http"
+<<<<<<< HEAD
 	"time"
+=======
+>>>>>>> 498931a8c7b74d58433ea2fc30441893788d7506
 
 	"golang.org/x/net/html"
 )
@@ -15,6 +18,7 @@ var text []string
 
 func main() {
 
+<<<<<<< HEAD
 	//i have added here a client time out suppose get request not complet their work within
 	//10 second it will return erroor
 
@@ -22,6 +26,9 @@ func main() {
 		Timeout: time.Second*10,
 	}
 	resp, err := netclient.Get("https://github.com/gophercises/link/blob/master/ex2.html")
+=======
+	resp, err := http.Get("https://github.com/gophercises/link/blob/master/ex2.html")
+>>>>>>> 498931a8c7b74d58433ea2fc30441893788d7506
 	if err != nil {
 		log.Fatal("Error in Fetching URL ", err)
 	}
@@ -55,7 +62,11 @@ func main() {
 				}
 				//if you are in <a> tag so next tocken will be the text
 				nextTockenTypeforText := tokenizer.Next()
+<<<<<<< HEAD
 				//for make sure that, it is text only i am ussing if condition
+=======
+				//for make sure that, it is text only i am using if condition
+>>>>>>> 498931a8c7b74d58433ea2fc30441893788d7506
 				if nextTockenTypeforText == html.TextToken {
 					linkText := tokenizer.Token().Data
 					text = append(text, linkText)
