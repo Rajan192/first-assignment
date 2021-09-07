@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"time"
 
 	"golang.org/x/net/html"
 )
@@ -14,7 +15,13 @@ var text []string
 
 func main() {
 
-	resp, err := http.Get("https://github.com/gophercises/link/blob/master/ex2.html")
+	//i have added here a client time out suppose get request not complet their work within
+	//10 second it will return erroor
+
+	netclient:=&http.Client{
+		Timeout: time.Second*10,
+	}
+	resp, err := netclient.Get("https://github.com/gophercises/link/blob/master/ex2.html")
 	if err != nil {
 		log.Fatal("Error in Fetching URL ", err)
 	}
